@@ -137,6 +137,13 @@
   background-color: #333;
 }
 
+.camera {
+  float: left;
+  position: absolute;
+  top: 76px;
+  left: 60px;
+}
+
 .amsterdam {
   top: 35px;
   left: 33px;
