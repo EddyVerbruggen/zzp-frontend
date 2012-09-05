@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:gap="http://phonegap.com/ns/1.0"
+        id="nl.x-services.zzp"
+        version="0.0.1">
+
+  <name>ZZP</name><!-- is also the name of the icon on the device -->
+
+  <description>
+    Bas en Eddy gaan EINDELIJK steen-fukking-rijk worden. Wiew!
+  </description>
+
+  <author href="http://www.x-services.nl"
+          email="eddy@x-services.nl">
+    X-Services VOF
+  </author>
+
+  <feature name="http://api.phonegap.com/1.0/network"/>
+
+  <preference name="phonegap-version" value="2.0.0"/>
+  <preference name="orientation" value="default"/><!-- both landscape and portrait-->
+  <preference name="target-device" value="universal"/>
+  <preference name="webviewbounce" value="false"/><!-- iOS rubber banding -->
+  <preference name="ios-statusbarstyle" value="black-opaque"/>
+  <preference name="android-minSdkVersion" value="8" />
+  <preference name="android-installLocation" value="auto" /><!-- preferExternal; preferably install on SD-card -->
+
+</widget>
