@@ -11,7 +11,7 @@ function captureImage() {
     encodingType:Camera.EncodingType.JPEG,
     sourceType:sourceType, // camera or photoroll
     targetWidth:140, // phone img = 70x150, but we required 140x200 for Retina displays
-    targetHeight:200
+    targetHeight:200 // TODO square, as ios seems to make square imgs
   });
 }
 
@@ -37,14 +37,14 @@ function cameraIconClicked(theElement) {
     navigator.notification.confirm(
         'Vervang of verwijder de foto.', // message
         onConfirmExisting, // callback to invoke with index of button pressed
-        'Foto koppelen aan een rekening', // title
+        'Profielfoto', // title
         'Foto maken,Foto kiezen,Foto verwijderen,Annuleren' // buttonLabels
     );
   } else {
     navigator.notification.confirm(
         'U kunt de foto later altijd veranderen of verwijderen.', // message
         onConfirmNew, // callback to invoke with index of button pressed
-        'Foto koppelen aan een rekening', // title
+        'Profielfoto', // title
         'Foto maken,Foto kiezen,Annuleren'  // buttonLabels
     );
   }
