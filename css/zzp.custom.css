@@ -158,3 +158,14 @@
   top: 46px;
   left: 67px;
 }
+
+.ui-footer {
+  font-size: 10px;
+  color: #bbb;
+  margin-top: 16px;
+  text-align: right;
+}
+
+.ui-footer a {
+  color: #bbb;
+}

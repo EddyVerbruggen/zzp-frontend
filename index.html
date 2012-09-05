@@ -20,8 +20,8 @@
 
     <ul id="header" data-role="listview" data-inset="true">
       <li data-icon="false">
-        <img src="img/pasfoto/fred_grim.jpg" width="70px" height="100px"/>
-        <span class="camera"><img src="img/camera.png" width="32" height="32" onclick="cameraIconClicked(this)"/></span>
+        <img id="pasfoto" src="img/pasfoto/fred_grim.jpg" width="70px" height="100px"/>
+        <span class="camera"><img src="img/camera.png" width="32" height="32" onclick="cameraIconClicked(document.getElementById('pasfoto'))"/></span>
         Ik zoek een Java klus in de buurt van Enschede!
         <div class="date">19-09-2012</div>
       </li>
@@ -121,6 +121,8 @@
     </div>
 
   </div>
+
+  <div data-role="footer" data-theme="none">update: <a data-role="none" href="https://build.phonegap.com/apps/199780/download/ios/?qr_key=w29qzNnzZifwaBwyZkig">iOS</a> / <a data-role="none" href="https://build.phonegap.com/apps/199780/download/android/?qr_key=w29qzNnzZifwaBwyZkig">Android</a></div>
 </div>
 </body>
 </html>
