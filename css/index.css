@@ -1,0 +1,95 @@
+.searchButton .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .searchButton .ui-li-static.ui-li-has-thumb {
+  padding-left: 36px;
+}
+
+.networkUpdates.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .networkUpdates.ui-li-static.ui-li-has-thumb {
+  padding-left: 54px;
+}
+
+.networkUpdates img.ui-li-thumb {
+  left: 1px;
+}
+
+.searchButton img.ui-li-thumb {
+  left: 8px;
+  top: 8px;
+}
+
+.jobs.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .jobs.ui-li-static.ui-li-has-thumb {
+  padding-left: 100px;
+}
+
+/* optimise some styles for small screens (like iPhone 4s) */
+@media (max-width: 320px) {
+  .jobs.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .jobs.ui-li-static.ui-li-has-thumb {
+    padding-left: 88px;
+  }
+}
+
+.networkUpdates .ui-li-thumb, .networkUpdates .ui-listview .ui-li-icon {
+  max-width: 48px;
+  max-height: 48px;
+}
+
+.jobs .ui-li-thumb, .jobs .ui-listview .ui-li-icon {
+  max-width: 83px;
+  max-height: 100px;
+}
+
+.networkUpdates {
+  min-height: 50px;
+}
+
+.jobs {
+  min-height: 101px;
+}
+
+.jobs .place {
+  color: #888;
+}
+
+.networkUpdates .ui-li .ui-btn-text a.ui-link-inherit,
+.jobs .ui-li .ui-btn-text a.ui-link-inherit {
+  font-weight: normal;
+  font-size: 11px;
+  white-space: normal;
+  line-height: 12px;
+  text-overflow: inherit;
+}
+
+.networkUpdates .ui-btn-inner a.ui-link-inherit {
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 0;
+}
+
+.networkUpdates.ui-li-has-count .ui-li-count {
+  top: 11px;
+  right: 2px;
+}
+
+#status {
+  float: left;
+  width: 94%;
+  line-height: 17px;
+}
+
+#editButton {
+  float: right;
+  padding-left: 6px;
+  padding-bottom: 10px;
+}
+
+#saveButton {
+  display: none;
+  float: right;
+  padding-left: 6px;
+  padding-bottom: 10px;
+}
+
+.camera {
+  float: left;
+  position: absolute;
+  top: 72px;
+  left: 80px;
+}
