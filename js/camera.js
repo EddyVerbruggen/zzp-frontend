@@ -10,8 +10,8 @@ function captureImage() {
     destinationType:Camera.DestinationType.DATA_URL, // base64
     encodingType:Camera.EncodingType.JPEG,
     sourceType:sourceType, // camera or photoroll
-    targetWidth:140, // phone img = 70x150, but we required 140x200 for Retina displays
-    targetHeight:200 // TODO square, as ios seems to make square imgs
+    targetWidth:192, // = double size for retina
+    targetHeight:192 // square, as ios seems to make square imgs
   });
 }
 

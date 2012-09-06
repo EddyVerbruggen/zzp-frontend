@@ -21,7 +21,7 @@
 
 .networkUpdates.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .networkUpdates.ui-li-static.ui-li-has-thumb,
 .searchButton .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .searchButton .ui-li-static.ui-li-has-thumb {
-  padding-left: 40px;
+  padding-left: 54px;
 }
 
 .networkUpdates img.ui-li-thumb {
@@ -50,6 +50,7 @@
 }
 
 .networkUpdates .ui-li-thumb, .networkUpdates .ui-listview .ui-li-icon {
+  max-width: 48px;
   max-height: 48px;
 }
 
@@ -70,12 +71,13 @@
 
 #header .ui-li-thumb, #header .ui-listview .ui-li-icon {
   left: 0;
-  max-height: 100px;
+  max-width: 96px;
+  max-height: 96px;
 }
 
 #header .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, #header .ui-li-static.ui-li-has-thumb {
-  min-height: 78px;
-  padding-left: 82px;
+  min-height: 74px;
+  padding-left: 107px;
 }
 
 .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit {
@@ -140,8 +142,8 @@
 .camera {
   float: left;
   position: absolute;
-  top: 76px;
-  left: 60px;
+  top: 72px;
+  left: 80px;
 }
 
 .amsterdam {
@@ -164,6 +166,7 @@
   color: #bbb;
   margin-top: 16px;
   margin-bottom: 16px;
+  margin-right: 2px;
   text-align: right;
 }
 

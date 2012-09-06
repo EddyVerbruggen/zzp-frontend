@@ -13,6 +13,47 @@
   <script src="js/jquery.mobile-1.2.0-alpha.1.min.js"></script>
   <script src="phonegap.js"></script>
   <script src="js/camera.js"></script>
+  <script type="text/javascript">
+    // TODO move page-specific JS and CSS to page-specific .js and .css files
+    function makeStatusEditable() {
+      $('#status').attr('contenteditable', true);
+      $('#status').css({'border': '1px dotted #666'});
+      $('#editButton').hide();
+      $('#saveButton').show();
+    }
+
+    function saveStatus() {
+      $('#status').attr('contenteditable', false);
+      $('#status').css({'border': '0'});
+      $('#saveButton').hide();
+      $('#editButton').show();
+      $('#statusDate').append(' <-- TODO: nieuwe datum'); //html('Nieuwe datum hier');
+    }
+  </script>
+  <style>
+    #status {
+      float: left;
+      width: 94%;
+    }
+
+    #editButton {
+      float: right;
+      padding-left: 6px;
+      padding-bottom: 10px;
+    }
+
+    #saveButton {
+      display: none;
+      float: right;
+      padding-left: 6px;
+      padding-bottom: 10px;
+    }
+
+    #statusDate {
+      clear: left;
+      padding-top: 5px;
+    }
+  </style>
 </head>
 <body>
 <div data-role="page">
@@ -21,10 +62,12 @@
 
     <ul id="header" data-role="listview" data-inset="true">
       <li data-icon="false">
-        <img id="pasfoto" src="img/pasfoto/fred_grim.jpg" width="70px" height="100px"/>
+        <img id="pasfoto" src="img/pasfoto/3.jpg" width="96px" height="96px"/>
         <span class="camera"><img src="img/camera.png" width="32" height="32" onclick="cameraIconClicked(document.getElementById('pasfoto'))"/></span>
-        Ik zoek een Java klus in de buurt van Enschede!
-        <div class="date">19-09-2012</div>
+        <div id="status" contenteditable="false">Ik zoek een Java klus in de buurt van Enschede!</div>
+        <div id="editButton" onclick="makeStatusEditable()"><img src="img/edit.png" width="16px" height="16px"/></div>
+        <div id="saveButton" onclick="saveStatus()"><img src="img/save.gif" width="16px" height="16px"/></div>
+        <div id="statusDate" class="date">19-09-2012</div>
       </li>
     </ul>
 
@@ -70,30 +113,38 @@
 
     <div style="width:49%; float:left; clear: left">
       <ul data-role="listview" data-inset="false">
-        <li data-icon="false" class="networkUpdates"><a  href="userupdate.html"><img src="img/pasfoto/mounir_el_hamdaoui.jpg"/>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/3.jpg"/>
 
           <div class="date">22-09-2012</div>
           Ik heb een klus gevonden! Thx all!<span class="ui-li-count">2</span></a></li>
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/anthony_lurling.jpg"/>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/2.gif"/>
 
           <div class="date">18-09-2012</div>
           Ik hou van deze app :)<span class="ui-li-count">1</span></a></li>
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/mr_bean.gif"/>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/1.gif"/>
 
           <div class="date">08-09-2012</div>
           Wie weet iets van Magento?<span class="ui-li-count">45</span></a></li>
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/christopher_walken.jpg"/>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
 
           <div class="date">01-09-2012</div>
           Ik zoek een PHP opdracht in Amsterdam</a></li>
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/mounir_el_hamdaoui.jpg"/>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/3.jpg"/>
 
           <div class="date">25-08-2012</div>
           Wie helpt me aan een Java klus in Utrecht?<span class="ui-li-count">9</span></a></li>
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/christopher_walken.jpg"/>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
 
           <div class="date">17-08-2012</div>
           Skills toegevoegd: PHP, HTML, CSS.<span class="ui-li-count">1</span></a></li>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/1.gif"/>
+
+          <div class="date">17-08-2012</div>
+          Leuke nieuwe app dit, eens kijken of ik er aan kan wennen.<span class="ui-li-count">3</span></a></li>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/2.gif"/>
+
+          <div class="date">14-08-2012</div>
+          Skills toegevoegd: Java.<span class="ui-li-count">13</span></a></li>
       </ul>
     </div>
 
@@ -104,20 +155,21 @@
     <div style="width:49%; float:left">
       <ul data-role="listview" data-inset="false">
         <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"></span>
-
           <div class="date">22/09/2012</div>
           <div class="place">Amsterdam</div>
           Java</a></li>
         <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker groningen"></span>
-
           <div class="date">21/09/2012</div>
           <div class="place">Groningen</div>
           PHP, Mobile, Cordova</a></li>
         <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker enschede"></span>
-
           <div class="date">18/09/2012</div>
           <div class="place">Enschede</div>
           Java</a></li>
+        <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"></span>
+          <div class="date">17/09/2012</div>
+          <div class="place">Amsterdam</div>
+          Wordpress</a></li>
       </ul>
     </div>
 
