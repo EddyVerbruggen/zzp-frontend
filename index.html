@@ -6,15 +6,19 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title>ZZP</title>
+  <!-- NOTE: jqm loads the HEAD only once per session, so we need to include all css and js on every page (not only the first, because a reload of a page need to load all css/js as well) -->
   <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.2.0-alpha.1.min.css"/>
   <link rel="stylesheet" href="css/zzp.custom.css"/>
   <link rel="stylesheet" href="css/index.css"/>
-  <script src="js/jquery.js"></script>
+  <link rel="stylesheet" href="css/userupdate.css"/>
+  <link rel="stylesheet" href="css/jobupdate.css"/>
+  <script src="js/lib/jquery.js"></script>
   <script src="js/zzp.custom.js"></script>
-  <script src="js/jquery.mobile-1.2.0-alpha.1.min.js"></script>
+  <script src="js/lib/jquery.mobile-1.2.0-alpha.1.min.js"></script>
   <script src="phonegap.js"></script>
   <script src="js/camera.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/userupdate.js"></script>
 </head>
 <body>
 <div data-role="page">
@@ -22,7 +26,7 @@
   <div data-role="content">
 
     <ul id="header" data-role="listview" data-inset="true">
-      <li data-icon="false">
+      <li id="indexHeader" data-icon="false">
         <img id="pasfoto" src="img/pasfoto/3.jpg" width="96px" height="96px"/>
         <span class="camera"><img src="img/camera.png" width="32" height="32" onclick="cameraIconClicked(document.getElementById('pasfoto'))"/></span>
         <div id="status" contenteditable="false">Ik zoek een Java klus in de buurt van Enschede!</div>
@@ -74,7 +78,7 @@
 
     <div style="width:49%; float:left; clear: left">
       <ul data-role="listview" data-inset="false">
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/3.jpg"/>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
 
           <div class="date">22-09-2012</div>
           Ik heb een klus gevonden! Thx all!<span class="ui-li-count">2</span></a></li>
@@ -93,7 +97,7 @@
         <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/3.jpg"/>
 
           <div class="date">25-08-2012</div>
-          Wie helpt me aan een Java klus in Utrecht?<span class="ui-li-count">9</span></a></li>
+          Ik zoek een Java klus in de buurt van Enschede!<span class="ui-li-count">9</span></a></li>
         <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
 
           <div class="date">17-08-2012</div>
@@ -106,6 +110,15 @@
 
           <div class="date">14-08-2012</div>
           Skills toegevoegd: Java, Scala.<span class="ui-li-count">13</span></a></li>
+
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
+
+          <div class="date">09-08-2012</div>
+          Skills toegevoegd: Scala.<span class="ui-li-count">4</span></a></li>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
+
+          <div class="date">07-08-2012</div>
+          Erm, komen er wel eens Scala klussen langs?<span class="ui-li-count">4</span></a></li>
       </ul>
     </div>
 
@@ -115,22 +128,26 @@
 
     <div style="width:49%; float:left">
       <ul data-role="listview" data-inset="false">
-        <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"></span>
+        <li data-icon="false" class="jobs"><a href="jobupdate.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"><span class="ui-li-count">2</span></span>
           <div class="date">22/09/2012</div>
           <div class="place">Amsterdam</div>
           Java</a></li>
-        <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker groningen"></span>
+        <li data-icon="false" class="jobs"><a href="jobupdate.html"><img src="img/landkaart.png"/><span class="locationMarker groningen"><span class="ui-li-count">3</span></span>
           <div class="date">21/09/2012</div>
           <div class="place">Groningen</div>
           PHP, Mobile, Cordova</a></li>
-        <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker enschede"></span>
+        <li data-icon="false" class="jobs"><a href="jobupdate.html"><img src="img/landkaart.png"/><span class="locationMarker enschede"><span class="ui-li-count">1</span></span>
           <div class="date">18/09/2012</div>
           <div class="place">Enschede</div>
           Java</a></li>
-        <li data-icon="false" class="jobs"><a href="index.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"></span>
+        <li data-icon="false" class="jobs"><a href="jobupdate.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"><span class="ui-li-count">1</span></span>
           <div class="date">17/09/2012</div>
           <div class="place">Amsterdam</div>
           Wordpress</a></li>
+        <li data-icon="false" class="jobs"><a href="jobupdate.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"><span class="ui-li-count">2</span></span>
+          <div class="date">08/09/2012</div>
+          <div class="place">Amsterdam</div>
+          Java, Scala</a></li>
       </ul>
     </div>
 

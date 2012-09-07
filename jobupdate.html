@@ -26,10 +26,12 @@
   <div data-role="content">
 
     <ul id="header" data-role="listview" data-inset="true">
-      <li data-icon="false">
-        <img src="img/pasfoto/4.jpg" width="96px" height="96px"/>
-        Ik heb een klus gevonden! Thx all!
-        <div class="date">22-09-2012</div>
+      <li id="jobupdateHeader" data-icon="false">
+        <img src="img/landkaart.png" width="83px" height="100px"/>
+        <span class="locationMarker amsterdam"><span class="ui-li-count">2</span></span>
+        <span class="locationMarker enschede inactive"><span class="ui-li-count">1</span></span>
+        Er zijn 2 Java klussen in Amsterdam
+        <div class="date">Hier komen plaats en skill filters. In de landkaart zie je ook andere plaatsen met dezelfde skillset.</div>
       </li>
     </ul>
 
@@ -49,26 +51,24 @@
 
     <div>
       <ul data-role="listview" data-inset="false" data-theme="b">
-        <li data-icon="false">Reacties</li>
+        <li data-icon="false">Klussen</li>
       </ul>
     </div>
 
     <div>
       <ul data-role="listview" data-inset="false">
-        <li id="suggestComment" data-icon="false" class="networkUpdates">
-          <img src="img/pasfoto/3.jpg"/>
-          <div id="comment" contenteditable="false" onclick="event.stopPropagation()">schrijf een reactie...</div>
-          <div id="editButton" onclick="makeCommentEditable()"><img src="img/edit.png" width="16px" height="16px"/></div>
-          <div id="saveButton" onclick="saveComment()"><img src="img/save.gif" width="16px" height="16px"/></div>
+        <li data-icon="false" class="networkUpdates"><a><img src="img/skill/java.jpg"/>
+          <div class="date">22-09-2012</div>
+          Java</a>
         </li>
-        <li data-icon="false" class="networkUpdates"><a><img src="img/pasfoto/1.gif"/>
-          <div class="date">28-09-2012</div>
-          Van harte en veel succes met je klus :)</a>
+        <li data-icon="false" class="networkUpdates"><a><img src="img/skill/java.jpg"/>
+          <div class="date">08-09-2012</div>
+          Java, Scala</a>
         </li>
-        <li data-icon="false" class="networkUpdates"><a><img src="img/pasfoto/2.gif"/>
-          <div class="date">23-09-2012</div>
-          Hey Lio, gefeli man! Groetjes van je mattie Chriz.</a>
-        </li>
+        <!--li data-icon="false" class="networkUpdates"><a><img src="img/skill/wordpress.png"/>
+          <div class="date">17-09-2012</div>
+          Wordpress</a>
+        </li-->
       </ul>
     </div>
 

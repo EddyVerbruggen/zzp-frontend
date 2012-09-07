@@ -2,14 +2,6 @@
   padding-left: 36px;
 }
 
-.networkUpdates.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .networkUpdates.ui-li-static.ui-li-has-thumb {
-  padding-left: 54px;
-}
-
-.networkUpdates img.ui-li-thumb {
-  left: 1px;
-}
-
 .searchButton img.ui-li-thumb {
   left: 8px;
   top: 8px;
@@ -26,18 +18,9 @@
   }
 }
 
-.networkUpdates .ui-li-thumb, .networkUpdates .ui-listview .ui-li-icon {
-  max-width: 48px;
-  max-height: 48px;
-}
-
 .jobs .ui-li-thumb, .jobs .ui-listview .ui-li-icon {
   max-width: 83px;
   max-height: 100px;
-}
-
-.networkUpdates {
-  min-height: 50px;
 }
 
 .jobs {
@@ -48,24 +31,12 @@
   color: #888;
 }
 
-.networkUpdates .ui-li .ui-btn-text a.ui-link-inherit,
 .jobs .ui-li .ui-btn-text a.ui-link-inherit {
   font-weight: normal;
   font-size: 11px;
   white-space: normal;
   line-height: 12px;
   text-overflow: inherit;
-}
-
-.networkUpdates .ui-btn-inner a.ui-link-inherit {
-  padding-right: 2px;
-  padding-top: 2px;
-  padding-bottom: 0;
-}
-
-.networkUpdates.ui-li-has-count .ui-li-count {
-  top: 11px;
-  right: 2px;
 }
 
 #status {

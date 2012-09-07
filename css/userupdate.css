@@ -1,0 +1,32 @@
+.backButton .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .backButton .ui-li-static.ui-li-has-thumb {
+  padding-left: 36px;
+}
+
+.backButton img.ui-li-thumb {
+  left: 8px;
+  top: 8px;
+}
+
+#suggestComment {
+  opacity: 0.4;
+}
+
+#suggestComment.ui-li .ui-btn-inner a.ui-link-inherit, #suggestComment.ui-li-static.ui-li {
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 49px;
+}
+
+#suggestComment #comment {
+  padding-top: 4px;
+  font-size: 14px;
+  float: left;
+  width: 88%;
+  line-height: 17px;
+  height: 39px;
+}
+
+#suggestComment.networkUpdates #editButton, #suggestComment.networkUpdates #saveButton {
+  padding-top: 4px;
+  padding-right: 4px;
+}
