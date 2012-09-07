@@ -8,6 +8,7 @@
   <title>ZZP</title>
   <!-- NOTE: jqm loads the HEAD only once per session, so we need to include all css and js on every page (not only the first, because a reload of a page need to load all css/js as well) -->
   <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.2.0-alpha.1.min.css"/>
+  <link rel="stylesheet" href="css/jquery.scrollz.css"/>
   <link rel="stylesheet" href="css/zzp.custom.css"/>
   <link rel="stylesheet" href="css/index.css"/>
   <link rel="stylesheet" href="css/userupdate.css"/>
@@ -15,6 +16,7 @@
   <script src="js/lib/jquery.js"></script>
   <script src="js/zzp.custom.js"></script>
   <script src="js/lib/jquery.mobile-1.2.0-alpha.1.min.js"></script>
+  <script src="js/lib/jquery.scrollz.min.js"></script>
   <script src="phonegap.js"></script>
   <script src="js/camera.js"></script>
   <script src="js/index.js"></script>
@@ -23,7 +25,7 @@
 <body>
 <div data-role="page">
 
-  <div data-role="content">
+  <div id="content" data-role="content">
 
     <ul id="header" data-role="listview" data-inset="true">
       <li id="indexHeader" data-icon="false">
@@ -61,7 +63,7 @@
     </div>
 
     <div style="width:49%; float:left; clear: left">
-      <ul data-role="listview" data-inset="false" data-theme="b">
+      <ul data-role="listview" data-inset="false" data-theme="a">
         <li data-icon="false">TFG updates</li>
       </ul>
     </div>
@@ -71,13 +73,13 @@
     </div>
 
     <div style="width:49%; float:left">
-      <ul data-role="listview" data-inset="false" data-theme="b">
+      <ul data-role="listview" data-inset="false" data-theme="a">
         <li data-icon="false">Klus updates</li>
       </ul>
     </div>
 
     <div style="width:49%; float:left; clear: left">
-      <ul data-role="listview" data-inset="false">
+      <ul id="networkUpdatesScroller" data-role="listview" data-inset="false">
         <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
 
           <div class="date">22-09-2012</div>
@@ -127,7 +129,7 @@
     </div>
 
     <div style="width:49%; float:left">
-      <ul data-role="listview" data-inset="false">
+      <ul id="jobUpdatesScroller" data-role="listview" data-inset="false">
         <li data-icon="false" class="jobs"><a href="jobupdate.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"><span class="ui-li-count">2</span></span>
           <div class="date">22/09/2012</div>
           <div class="place">Amsterdam</div>
@@ -153,7 +155,9 @@
 
   </div>
 
-  <div data-role="footer" data-theme="none">update: <a data-role="none" href="https://build.phonegap.com/apps/199780/download/ios/?qr_key=w29qzNnzZifwaBwyZkig">iOS</a> / <a data-role="none" href="https://build.phonegap.com/apps/199780/download/android/?qr_key=w29qzNnzZifwaBwyZkig">Android</a></div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="a">
+    update app on <a data-role="none" href="https://build.phonegap.com/apps/199780/download/ios/?qr_key=w29qzNnzZifwaBwyZkig"><strong>iOS</strong></a> or <a data-role="none" href="https://build.phonegap.com/apps/199780/download/android/?qr_key=w29qzNnzZifwaBwyZkig"><strong>Android</strong></a>
+  </div>
 </div>
 </body>
 </html>
