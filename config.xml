@@ -28,5 +28,6 @@
   <preference name="android-minSdkVersion" value="8" />
   <preference name="android-installLocation" value="auto" /><!-- preferExternal; preferably install on SD-card -->
   <preference name="show-splash-screen-spinner" value="false" />
+  <preference name="stay-in-webview" value="true" /><!-- LinkedIn integration -->
 
 </widget>
