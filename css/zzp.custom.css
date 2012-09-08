@@ -125,3 +125,12 @@
   top: 11px;
   right: 2px;
 }
+
+.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.ui-field-contain, .ui-mobile fieldset.ui-field-contain {
+  margin: 0;
+}

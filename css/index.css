@@ -64,3 +64,41 @@
   top: 72px;
   left: 80px;
 }
+
+.filterheader {
+  margin-bottom: 5px;
+}
+
+.filterheader legend {
+  font-size: 0.85em;
+}
+
+.networkUpdateType {
+  position: absolute;
+  float: left;
+  top: 2px;
+  left: 0;
+  width: 12px;
+}
+
+#networkUpdatesContainer .ui-header .ui-btn-inner, #networkUpdatesContainer .ui-footer .ui-btn-inner, .ui-mini .ui-btn-inner {
+  font-size: 11px;
+  padding: 0.15em 8px 1em;
+}
+
+.ui-checkbox input, .ui-radio input {
+  left: 0;
+}
+
+.ui-controlgroup-horizontal.ui-mini .ui-btn-inner {
+  line-height: 10px;
+  text-overflow: inherit;
+}
+
+.ui-controlgroup-horizontal .km .ui-btn-text {
+  top: 3px;
+}
+
+.ui-controlgroup-horizontal .infinity .ui-btn-text {
+  top: 8px;
+}
