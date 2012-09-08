@@ -21,42 +21,37 @@
   <script src="js/userupdate.js"></script>
   <script type="text/javascript">
     function redirectToLinkedInAuth() {
+      sessionStorage.linkedInLoginAttemptInProgress = true;
       window.location="http://www.thumbrater.com:9005/linkedin/test?returnurl="+window.location.href;
     }
 
     function getLinkedInProfileDetails() {
-      $.get("http://www.thumbrater.com:9005/linkedin/profile")
-          .success(function(data) { alert(data); })
+      $.getJSON("http://www.thumbrater.com:9005/linkedin/profile")
+          .success(function(data) {
+            sessionStorage.linkedInLoginSuccessful = true;
+
+            $.each(data, function(key, val) {
+              alert(key + ": " + val);
+            });
+          })
           .error(function(XMLHttpRequest, textStatus, errorThrown) {
             alert(XMLHttpRequest);
             alert(textStatus);
             alert(errorThrown);
           })
-          .complete(function() { alert("complete"); })
     }
 
+    $(window).unload(function() {}); // forces a document.ready when coming back from linkedin oauth :)
+
     $(document).ready(function() {
-      // remember in the session that linkedInOAuth was successful
-      if (getUrlParam("LinkedInOAuthSuccess")) {
-        sessionStorage.LinkedInOAuthSuccess = true;
-      }
-      if (sessionStorage.LinkedInOAuthSuccess) {
+      if (sessionStorage.linkedInLoginSuccessful || sessionStorage.linkedInLoginAttemptInProgress) {
+        sessionStorage.linkedInLoginAttemptInProgress = false;
         $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Auth OK, get profile</a>');
       } else {
         $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">LinkedIn auth test</a>');
       }
     })
   </script>
-  <!--
-    LinkedIn applications details (temporary here..):
-
-    Company: X-services VOF
-    Application Name: ZZP
-    API Key: fncalnuytjqi
-    Secret Key: c8FaJ1aCBAL7ayWz
-    OAuth User Token: e6b72219-d976-4b59-a3eb-b6ca33f816db
-    OAuth User Secret: a5b7e0d1-3869-47e2-9012-992479c71198
-  -->
 </head>
 <body>
 <div id="indexPage" data-role="page">

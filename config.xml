@@ -30,4 +30,7 @@
   <preference name="show-splash-screen-spinner" value="false" />
   <preference name="stay-in-webview" value="true" /><!-- LinkedIn integration -->
 
+  <!-- allow loading any url in the webview -->
+  <access origin="*" />
+
 </widget>

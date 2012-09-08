@@ -15,8 +15,9 @@ function captureImage() {
   });
 }
 
+// TODO consider removing the remove feature (because Android supports max 3 buttons.. or at least on older devices)
 function removeCustomImage() {
-  clickedImage.src = "img/pasfoto/fred_grim.jpg";
+  clickedImage.src = "img/pasfoto/3.jpg";
 }
 
 function onSuccess(imageData) {
