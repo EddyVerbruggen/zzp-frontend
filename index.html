@@ -33,7 +33,10 @@
         <div id="status" contenteditable="false">Ik zoek een Java klus in de buurt van Enschede!</div>
         <div id="editButton" onclick="makeStatusEditable()"><img src="img/edit.png" width="16px" height="16px"/></div>
         <div id="saveButton" onclick="saveStatus()"><img src="img/save.gif" width="16px" height="16px"/></div>
-        <div id="statusDate" class="date">19-09-2012</div>
+        <div id="statusDate" class="date">
+          19-09-2012
+          <span class="ui-li-count">9</span>
+        </div>
       </li>
     </ul>
 
@@ -63,10 +66,10 @@
 
     <div style="width:49%; float:left; clear: left" id="networkUpdatesContainer">
       <ul data-role="listview" data-inset="false">
-        <li data-icon="false">
+        <li data-icon="false" class="filterRow">
           <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-              <div class="filterheader"><legend>Toon updates van</legend></div>
+              <div class="filterheader"><legend>Toon updates van..</legend></div>
               <input type="checkbox" name="radio-choice-b" id="radio-choice-c" value="off"/>
               <label for="radio-choice-c"><img src="img/favourite.png" width="24px"/></label>
               <input type="checkbox" name="radio-choice-b" id="radio-choice-d" value="off"/>
@@ -95,6 +98,7 @@
         <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/2.gif"/>
           <span class="networkUpdateType">
             <img src="img/favourite.png" width="12px"/>
+            <img src="img/company.gif" width="12px"/>
           </span>
 
           <div class="date">18-09-2012</div>
@@ -111,28 +115,23 @@
           <div class="date">01-09-2012</div>
           Ik zoek een PHP opdracht in Amsterdam</a></li>
         <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/3.jpg"/>
-          <span class="networkUpdateType">
-            <img src="img/favourite.png" width="12px"/>
-            <img src="img/company.gif" width="12px"/>
-            <img src="img/linkedin.gif" width="12px"/>
-          </span>
 
           <div class="date">25-08-2012</div>
           Ik zoek een Java klus in de buurt van Enschede!<span class="ui-li-count">9</span></a></li>
         <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
-
-          <div class="date">17-08-2012</div>
-          Skills toegevoegd: PHP, HTML, CSS.<span class="ui-li-count">1</span></a></li>
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/1.gif"/>
           <span class="networkUpdateType">
-            <img src="img/favourite.png" width="12px"/>
             <img src="img/linkedin.gif" width="12px"/>
           </span>
 
           <div class="date">17-08-2012</div>
-          Leuke nieuwe app dit, eens kijken of ik er aan kan wennen.<span class="ui-li-count">3</span></a></li>
+          Skills toegevoegd: PHP, HTML, CSS.<span class="ui-li-count">1</span></a></li>
+        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/1.gif"/>
+
+          <div class="date">17-08-2012</div>
+          Leuke app dit, eens kijken of ik er wat mee kan.<span class="ui-li-count">3</span></a></li>
         <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/2.gif"/>
           <span class="networkUpdateType">
+            <img src="img/favourite.png" width="12px"/>
             <img src="img/company.gif" width="12px"/>
           </span>
 
@@ -162,10 +161,10 @@
 
     <div style="width:49%; float:left">
       <ul data-role="listview" data-inset="false">
-        <li data-icon="false">
+        <li data-icon="false" class="filterRow">
           <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-              <div class="filterheader"><legend>Toon opdrachten</legend></div>
+              <div class="filterheader"><legend>Toon klussen binnen..</legend></div>
               <input type="radio" name="radio-choice-job" id="radio-choice-job-c" value="off"/>
               <label for="radio-choice-job-c" class="km">25<br/>km</label>
               <input type="radio" name="radio-choice-job" id="radio-choice-job-d" value="off"/>
