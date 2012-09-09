@@ -20,73 +20,95 @@
   <script src="js/index.js"></script>
   <script src="js/userupdate.js"></script>
   <script type="text/javascript">
+    // TODO extract generic part of getJSON calls
+
+    function getUUID() {
+      return localStorage.getItem("uuid");
+    }
+
     function redirectToLinkedInAuth() {
-      sessionStorage.setItem('linkedInLoginAttemptInProgress', true);
-      window.location="http://www.thumbrater.com:9005/linkedin/auth/1"; // TODO userid
+      sessionStorage.setItem('linkedInLoginAttemptInProgress', "1");
+      window.location="http://www.thumbrater.com:9005/linkedin/auth/"+getUUID();
     }
 
     function loadUser() {
-      $.getJSON("http://www.thumbrater.com:9005/user/load/1") // TODO userid
+      $.getJSON("http://www.thumbrater.com:9005/user/load/"+getUUID())
           .success(function(data) {
             $.each(data, function(key, val) {
               alert(key + ": " + val);
             });
           })
           .error(function(XMLHttpRequest, textStatus, errorThrown) {
-//            alert(XMLHttpRequest);
             alert(textStatus);
-//            alert(errorThrown);
+          })
+    }
+
+    function createUser() {
+      $.getJSON("http://www.thumbrater.com:9005/user/create")
+          .success(function(data) {
+            localStorage.setItem("uuid", data.uuid);
+            initLinkedIn();
+          })
+          .error(function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(textStatus);
           })
     }
 
     function checkForLinkedInAccessToken() {
-      $.getJSON("http://www.thumbrater.com:9005/linkedin/authorised/1") // TODO userid
+      $.getJSON("http://www.thumbrater.com:9005/linkedin/authorised/"+getUUID())
           .success(function(data) {
             if (data /* service returns true or false*/) {
-              sessionStorage.setItem('linkedInLoginSuccessful', true);
-              $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (3)</a>');
+              sessionStorage.setItem('linkedInLoginSuccessful', "1");
+              $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (c)</a>');
             } else {
-              sessionStorage.setItem('linkedInLoginSuccessful', false);
-              $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Login with LinkedIn</a>');
+              sessionStorage.setItem('linkedInLoginSuccessful', "0");
+              $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Show LinkedIn connections (a)</a>');
             }
           })
           .error(function(XMLHttpRequest, textStatus, errorThrown) {
-//            alert(XMLHttpRequest);
             alert(textStatus);
-//            alert(errorThrown);
           })
     }
 
     function getLinkedInProfileDetails() {
-      $.getJSON("http://www.thumbrater.com:9005/linkedin/profile/1") // TODO userid
+      $.getJSON("http://www.thumbrater.com:9005/linkedin/profile/"+getUUID())
           .success(function(data) {
-            sessionStorage.setItem('linkedInLoginSuccessful', true);
+            sessionStorage.setItem('linkedInLoginSuccessful', "1");
 
-            $.each(data, function(key, val) {
-              alert(key + ": " + val);
-            });
+            alert("Hoi " + data.firstName + " ;)");
+            alert("Werkend bij " + data.positions.values[0].company.name + ", of niet dan?");
+//            $.each(data, function(key, val) {
+//              alert(key + ": " + val);
+//            });
           })
           .error(function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(XMLHttpRequest);
             alert(textStatus);
-            alert(errorThrown);
           })
     }
 
     $(window).unload(function() {}); // forces a document.ready when coming back from linkedin oauth :)
 
     $(document).ready(function() {
-      if (sessionStorage.getItem('linkedInLoginSuccessful')) {
-        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (1)</a>');
-      } else if (sessionStorage.getItem('linkedInLoginAttemptInProgress')) {
-        sessionStorage.setItem('linkedInLoginAttemptInProgress', false);
-        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (2)</a>');
+      // first check whether or now there is a user
+      if (getUUID() == null) {
+        createUser();
+      } else {
+        initLinkedIn();
+      }
+    });
+
+    function initLinkedIn() {
+      if (sessionStorage.getItem('linkedInLoginSuccessful') == "1") {
+        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (a)</a>');
+      } else if (sessionStorage.getItem('linkedInLoginAttemptInProgress') == "1") {
+        sessionStorage.setItem('linkedInLoginAttemptInProgress', "0");
+        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (b)</a>');
       } else if(sessionStorage.getItem('linkedInLoginSuccessful') == null) {
         checkForLinkedInAccessToken();
       } else {
-        $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Login with LinkedIn (b)</a>');
+        $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Show LinkedIn connections (b)</a>');
       }
-    })
+    }
   </script>
 </head>
 <body>
