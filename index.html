@@ -21,14 +21,46 @@
   <script src="js/userupdate.js"></script>
   <script type="text/javascript">
     function redirectToLinkedInAuth() {
-      sessionStorage.linkedInLoginAttemptInProgress = true;
-      window.location="http://www.thumbrater.com:9005/linkedin/test?returnurl="+window.location.href;
+      sessionStorage.setItem('linkedInLoginAttemptInProgress', true);
+      window.location="http://www.thumbrater.com:9005/linkedin/auth/1"; // TODO userid
+    }
+
+    function loadUser() {
+      $.getJSON("http://www.thumbrater.com:9005/user/load/1") // TODO userid
+          .success(function(data) {
+            $.each(data, function(key, val) {
+              alert(key + ": " + val);
+            });
+          })
+          .error(function(XMLHttpRequest, textStatus, errorThrown) {
+//            alert(XMLHttpRequest);
+            alert(textStatus);
+//            alert(errorThrown);
+          })
+    }
+
+    function checkForLinkedInAccessToken() {
+      $.getJSON("http://www.thumbrater.com:9005/linkedin/authorised/1") // TODO userid
+          .success(function(data) {
+            if (data /* service returns true or false*/) {
+              sessionStorage.setItem('linkedInLoginSuccessful', true);
+              $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (3)</a>');
+            } else {
+              sessionStorage.setItem('linkedInLoginSuccessful', false);
+              $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Login with LinkedIn</a>');
+            }
+          })
+          .error(function(XMLHttpRequest, textStatus, errorThrown) {
+//            alert(XMLHttpRequest);
+            alert(textStatus);
+//            alert(errorThrown);
+          })
     }
 
     function getLinkedInProfileDetails() {
-      $.getJSON("http://www.thumbrater.com:9005/linkedin/profile")
+      $.getJSON("http://www.thumbrater.com:9005/linkedin/profile/1") // TODO userid
           .success(function(data) {
-            sessionStorage.linkedInLoginSuccessful = true;
+            sessionStorage.setItem('linkedInLoginSuccessful', true);
 
             $.each(data, function(key, val) {
               alert(key + ": " + val);
@@ -44,11 +76,15 @@
     $(window).unload(function() {}); // forces a document.ready when coming back from linkedin oauth :)
 
     $(document).ready(function() {
-      if (sessionStorage.linkedInLoginSuccessful || sessionStorage.linkedInLoginAttemptInProgress) {
-        sessionStorage.linkedInLoginAttemptInProgress = false;
-        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Auth OK, get profile</a>');
+      if (sessionStorage.getItem('linkedInLoginSuccessful')) {
+        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (1)</a>');
+      } else if (sessionStorage.getItem('linkedInLoginAttemptInProgress')) {
+        sessionStorage.setItem('linkedInLoginAttemptInProgress', false);
+        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (2)</a>');
+      } else if(sessionStorage.getItem('linkedInLoginSuccessful') == null) {
+        checkForLinkedInAccessToken();
       } else {
-        $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">LinkedIn auth test</a>');
+        $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Login with LinkedIn (b)</a>');
       }
     })
   </script>
