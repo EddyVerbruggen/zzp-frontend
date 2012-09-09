@@ -19,3 +19,20 @@ function getUrlParam(name){
      return null;
    }
 }
+
+function isAndroid() {
+  return navigator.userAgent.toLowerCase().indexOf("android") > -1;
+}
+
+function isIOS() {
+  return navigator.userAgent.match(/(iPad|iPhone|iPod)/i);
+}
+
+function getServiceURL(servicePath) {
+  // on a device, connect to the testserver, otherwise to the dev machine
+  if (isAndroid() || isIOS()) {
+    return "http://www.thumbrater.com:9006" + servicePath;
+  } else {
+    return "http://www.thumbrater.com:9005" + servicePath;
+  }
+}

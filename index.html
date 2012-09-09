@@ -20,33 +20,48 @@
   <script src="js/index.js"></script>
   <script src="js/userupdate.js"></script>
   <script type="text/javascript">
-    // TODO extract generic part of getJSON calls
 
-    function getUUID() {
-      return localStorage.getItem("uuid");
+    function storeUser(obj) {
+      return localStorage.setItem("user", JSON.stringify(obj));
+    }
+
+    function getUser() {
+      var usr = localStorage.getItem("user");
+      if (usr == null) {
+        return null;
+      } else {
+        return JSON.parse(usr);
+      }
     }
 
     function redirectToLinkedInAuth() {
       sessionStorage.setItem('linkedInLoginAttemptInProgress', "1");
-      window.location="http://www.thumbrater.com:9005/linkedin/auth/"+getUUID();
+      window.location = getServiceURL("/linkedin/auth/"+getUser().uuid);
     }
 
-    function loadUser() {
-      $.getJSON("http://www.thumbrater.com:9005/user/load/"+getUUID())
-          .success(function(data) {
-            $.each(data, function(key, val) {
-              alert(key + ": " + val);
-            });
-          })
-          .error(function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(textStatus);
-          })
+    function initUser() {
+      if (getUser() == null) {
+        createUser();
+      } else {
+        $.getJSON(getServiceURL("/user/load/"+getUser().uuid))
+            .success(function(data) {
+              if (data == null) {
+                createUser();
+              } else {
+                storeUser(data);
+                initLinkedIn();
+              }
+            })
+            .error(function(XMLHttpRequest, textStatus, errorThrown) {
+              alert(textStatus);
+            })
+      }
     }
 
     function createUser() {
-      $.getJSON("http://www.thumbrater.com:9005/user/create")
+      $.getJSON(getServiceURL("/user/create"))
           .success(function(data) {
-            localStorage.setItem("uuid", data.uuid);
+            storeUser(data);
             initLinkedIn();
           })
           .error(function(XMLHttpRequest, textStatus, errorThrown) {
@@ -55,7 +70,7 @@
     }
 
     function checkForLinkedInAccessToken() {
-      $.getJSON("http://www.thumbrater.com:9005/linkedin/authorised/"+getUUID())
+      $.getJSON(getServiceURL("/linkedin/authorised/"+getUser().uuid))
           .success(function(data) {
             if (data /* service returns true or false*/) {
               sessionStorage.setItem('linkedInLoginSuccessful', "1");
@@ -71,7 +86,7 @@
     }
 
     function getLinkedInProfileDetails() {
-      $.getJSON("http://www.thumbrater.com:9005/linkedin/profile/"+getUUID())
+      $.getJSON(getServiceURL("/linkedin/profile/"+getUser().uuid))
           .success(function(data) {
             sessionStorage.setItem('linkedInLoginSuccessful', "1");
 
@@ -89,12 +104,7 @@
     $(window).unload(function() {}); // forces a document.ready when coming back from linkedin oauth :)
 
     $(document).ready(function() {
-      // first check whether or now there is a user
-      if (getUUID() == null) {
-        createUser();
-      } else {
-        initLinkedIn();
-      }
+      initUser();
     });
 
     function initLinkedIn() {
