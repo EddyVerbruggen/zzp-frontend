@@ -53,7 +53,11 @@
               }
             })
             .error(function(XMLHttpRequest, textStatus, errorThrown) {
-              alert(textStatus);
+              if (XMLHttpRequest.status == 0) {
+                alert("Server onbereikbaar: " + getServiceURL(""));
+              } else {
+                alert(textStatus);
+              }
             })
       }
     }
@@ -131,14 +135,15 @@
         <img id="pasfoto" src="img/pasfoto/3.jpg" width="96px" height="96px"/>
         <span class="camera"><img src="img/camera.png" width="32" height="32" onclick="cameraIconClicked(document.getElementById('pasfoto'))"/></span>
 
+        <div id="statusDate" class="date">
+          19-09-2012
+          <span id="linkedInTest"><a></a></span>
+          <span class="ui-li-count">9</span>
+        </div>
+
         <div id="status" contenteditable="false">Ik zoek een Java klus in de buurt van Enschede!</div>
         <div id="editButton" onclick="makeStatusEditable()"><img src="img/edit.png" width="16px" height="16px"/></div>
         <div id="saveButton" onclick="saveStatus()"><img src="img/save.gif" width="16px" height="16px"/></div>
-        <div id="statusDate" class="date">
-          19-09-2012
-          <span class="ui-li-count">9</span>
-          <div id="linkedInTest" style="text-align: right"></div>
-        </div>
       </li>
     </ul>
 
@@ -174,8 +179,10 @@
               <div class="filterheader"><legend>Toon updates van..</legend></div>
               <input type="checkbox" name="radio-choice-b" id="radio-choice-c" value="off"/>
               <label for="radio-choice-c"><img src="img/favourite.png" width="24px"/></label>
+
               <input type="checkbox" name="radio-choice-b" id="radio-choice-d" value="off"/>
               <label for="radio-choice-d"><img src="img/company.gif" width="24px"/></label>
+
               <input type="checkbox" name="radio-choice-b" id="radio-choice-e" value="other"/>
               <label for="radio-choice-e"><img src="img/linkedin.gif" width="24px"/></label>
             </fieldset>

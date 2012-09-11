@@ -47,15 +47,13 @@
 
 #editButton {
   float: right;
-  padding-left: 6px;
-  padding-bottom: 10px;
+  padding-top: 50px;
 }
 
 #saveButton {
   display: none;
   float: right;
-  padding-left: 6px;
-  padding-bottom: 10px;
+  padding-top: 50px;
 }
 
 .camera {
@@ -110,8 +108,7 @@
 }
 
 #indexHeader.ui-li-has-count .ui-li-count {
-  margin-left: 7px;
+  right: 7px;
   margin-top: -3px;
-  right: inherit;
   top: inherit;
 }

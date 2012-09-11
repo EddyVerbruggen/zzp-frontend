@@ -36,7 +36,6 @@
 }
 
 #header .date {
-  padding-top: 5px;
   clear: left;
 }
 
@@ -45,7 +44,12 @@
   color: #bbb;
 }
 
-.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit {
+#linkedInTest {
+  margin-left: 10px;
+  font-size: 10px;
+}
+.
+ui-li-has-thumb .ui-btn-inner a.ui-link-inherit {
   min-height: inherit;
 }
 
