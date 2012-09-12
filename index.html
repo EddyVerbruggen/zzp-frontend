@@ -78,10 +78,10 @@
           .success(function(data) {
             if (data /* service returns true or false*/) {
               sessionStorage.setItem('linkedInLoginSuccessful', "1");
-              $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (c)</a>');
+              $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">LinkedIn profile</a>');
             } else {
               sessionStorage.setItem('linkedInLoginSuccessful', "0");
-              $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Show LinkedIn connections (a)</a>');
+              $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">LinkedIn connections</a>');
             }
           })
           .error(function(XMLHttpRequest, textStatus, errorThrown) {
@@ -113,14 +113,14 @@
 
     function initLinkedIn() {
       if (sessionStorage.getItem('linkedInLoginSuccessful') == "1") {
-        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (a)</a>');
+        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">LinkedIn profile</a>');
       } else if (sessionStorage.getItem('linkedInLoginAttemptInProgress') == "1") {
         sessionStorage.setItem('linkedInLoginAttemptInProgress', "0");
-        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">Get LinkedIn profile (b)</a>');
+        $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">LinkedIn profile</a>');
       } else if(sessionStorage.getItem('linkedInLoginSuccessful') == null) {
         checkForLinkedInAccessToken();
       } else {
-        $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Show LinkedIn connections (b)</a>');
+        $("#linkedInTest").html('<a href="#" onclick="redirectToLinkedInAuth()">Show connections</a>');
       }
     }
   </script>

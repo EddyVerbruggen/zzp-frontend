@@ -1,5 +1,6 @@
 .searchButton .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .searchButton .ui-li-static.ui-li-has-thumb {
   padding-left: 36px;
+  min-height: inherit;
 }
 
 .searchButton img.ui-li-thumb {
@@ -46,14 +47,16 @@
 }
 
 #editButton {
-  float: right;
-  padding-top: 50px;
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
 }
 
 #saveButton {
   display: none;
-  float: right;
-  padding-top: 50px;
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
 }
 
 .camera {
