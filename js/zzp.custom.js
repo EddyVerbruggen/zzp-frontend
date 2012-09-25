@@ -28,11 +28,26 @@ function isIOS() {
   return navigator.userAgent.match(/(iPad|iPhone|iPod)/i);
 }
 
+function isMacBookBas() {
+  return window.location.hostname == 'zzpbas';
+}
+
+function isServerStubMode() {
+  return window.location.hostname == 'zzpbasstub'; // Bas stub mode
+}
+
+
 function getServiceURL(servicePath) {
   // on a device, connect to the testserver, otherwise to the dev machine
-  if (isAndroid() || isIOS()) {
-    return "http://www.thumbrater.com:9006" + servicePath;
+  if (isServerStubMode()) {
+    return "serverstub" + servicePath + ".json";
   } else {
-    return "http://www.thumbrater.com:9005" + servicePath;
+    if (isAndroid() || isIOS()) {
+      return "http://www.thumbrater.com:9006" + servicePath;
+    } else if (isMacBookBas()) {
+      return "http://localhost:9005" + servicePath;
+    } else {
+      return "http://www.thumbrater.com:9005" + servicePath;
+    }
   }
 }
