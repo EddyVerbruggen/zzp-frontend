@@ -133,10 +133,10 @@
               var html =
                   "<li data-icon='false' class='networkUpdates'>" +
                       "<a href='userupdate.html'>" +
-                        "<img src='" + update.person.imageUrl + "' alt='" + update.person.name + "'/>" +
+                        "<img src='" + update.user.image + "' alt='" + update.user.name + "'/>" +
                         "<span class='networkUpdateType'>";
 
-              $.each(update.person.networkUpdateTypes, function(idx, networkUpdateType) {
+              $.each(update.networkUpdateTypes, function(idx, networkUpdateType) {
                 html += "<img src='" + networkUpdateType.name + "' width='12px'/>";
               })
 
