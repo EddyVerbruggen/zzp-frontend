@@ -139,7 +139,7 @@
 
               if (update.networkUpdateTypes) {
                 $.each(update.networkUpdateTypes, function(idx, networkUpdateType) {
-                  html += "<img src='" + networkUpdateType.name + "' width='12px'/>";
+                  html += "<img class='nutIcon' data-name='" + networkUpdateType.name + "' src='" + networkUpdateType.image + "' width='12px'/>";
                 });
               }
 
@@ -210,16 +210,17 @@
       <ul id="networkUpdatesContainerListView" data-role="listview" data-inset="true" >
         <li data-icon="false" class="filterRow">
           <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <fieldset id="networkFilters" data-role="controlgroup" data-type="horizontal" data-mini="true">
               <div class="filterheader"><legend>Toon updates van..</legend></div>
-              <input type="checkbox" name="radio-choice-b" id="radio-choice-c" value="off"/>
-              <label for="radio-choice-c"><img src="img/favourite.png" width="24px"/></label>
 
-              <input type="checkbox" name="radio-choice-b" id="radio-choice-d" value="off"/>
-              <label for="radio-choice-d"><img src="img/company.gif" width="24px"/></label>
+              <input id="filterFavourites" type="checkbox" name="radio-choice-b" value="off"/>
+              <label for="filterFavourites"><img src="img/favourite.png" width="24px"/></label>
 
-              <input type="checkbox" name="radio-choice-b" id="radio-choice-e" value="other"/>
-              <label for="radio-choice-e"><img src="img/linkedin.gif" width="24px"/></label>
+              <input id="filterCompany" type="checkbox" name="radio-choice-b" value="off"/>
+              <label for="filterCompany"><img src="img/company.gif" width="24px"/></label>
+
+              <input id="filterLinkedIn" type="checkbox" name="radio-choice-b" value="other"/>
+              <label for="filterLinkedIn"><img src="img/linkedin.gif" width="24px"/></label>
             </fieldset>
           </div>
         </li>
