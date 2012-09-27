@@ -1,5 +1,5 @@
 .ui-content {
-  padding: 0;
+  padding: 0 0 10px;
   max-width: 640px;
   margin: auto; /* makes the app center-aligned when > max-width */
 }

@@ -113,6 +113,7 @@
     });
 
     function initLinkedIn() {
+      return; // disabled for now
       if (sessionStorage.getItem('linkedInLoginSuccessful') == "1") {
         $("#linkedInTest").html('<a href="#" onclick="getLinkedInProfileDetails()">LinkedIn profile</a>');
       } else if (sessionStorage.getItem('linkedInLoginAttemptInProgress') == "1") {
@@ -246,12 +247,7 @@
             </fieldset>
           </div>
         </li>
-      <!--</ul>-->
-    <!--</div>-->
 
-
-    <!--<div style="width:49%; float:left">-->
-      <!--<ul data-role="listview" data-inset="false">-->
         <li data-icon="false" class="jobs"><a href="jobupdate.html"><img src="img/landkaart.png"/><span class="locationMarker amsterdam"><span
             class="ui-li-count">2</span></span>
 
