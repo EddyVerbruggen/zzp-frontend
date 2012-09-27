@@ -136,15 +136,19 @@
                         "<img src='" + update.user.image + "' alt='" + update.user.name + "'/>" +
                         "<span class='networkUpdateType'>";
 
-              $.each(update.networkUpdateTypes, function(idx, networkUpdateType) {
-                html += "<img src='" + networkUpdateType.name + "' width='12px'/>";
-              })
+              if (update.networkUpdateTypes) {
+                $.each(update.networkUpdateTypes, function(idx, networkUpdateType) {
+                  html += "<img src='" + networkUpdateType.name + "' width='12px'/>";
+                });
+              }
 
               html += "</span>" +
                         "<div class='date'>" + update.date + "</div>" +
-                        update.message +
-                        "<span class='ui-li-count'>" + update.nrOfReactions + "</span>" +
-                      "</a>" +
+                        update.message;
+              if (update.nrOfReactions > 0) {
+                html += "<span class='ui-li-count'>" + update.nrOfReactions + "</span>";
+              }
+              html += "</a>" +
                    "</li>";
 
               $("#networkUpdatesContainerListView").append(html);
@@ -152,7 +156,7 @@
 
             $("#networkUpdatesContainerListView").listview('refresh');
           })
-    };
+    }
   </script>
 </head>
 <body>
@@ -218,38 +222,6 @@
             </fieldset>
           </div>
         </li>
-      <!--</ul>-->
-    <!--</div>-->
-
-    <!--div style="width:2%; float:left; ">
-      &nbsp;
-    </div-->
-
-    <!--<div style="width:49%; float:left; clear: left">-->
-      <!--<ul data-role="listview" data-inset="false">-->
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/2.gif"/>
-          <span class="networkUpdateType">
-            <img src="img/favourite.png" width="12px"/>
-            <img src="img/company.gif" width="12px"/>
-          </span>
-
-          <div class="date">14-08-2012</div>
-          Skills toegevoegd: Java, Scala.<span class="ui-li-count">13</span></a></li>
-
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
-          <span class="networkUpdateType">
-            <img src="img/linkedin.gif" width="12px"/>
-          </span>
-
-          <div class="date">09-08-2012</div>
-          Skills toegevoegd: Scala.<span class="ui-li-count">4</span></a></li>
-        <li data-icon="false" class="networkUpdates"><a href="userupdate.html"><img src="img/pasfoto/4.jpg"/>
-          <span class="networkUpdateType">
-            <img src="img/linkedin.gif" width="12px"/>
-          </span>
-
-          <div class="date">07-08-2012</div>
-          Erm, komen er wel eens Scala klussen langs?<span class="ui-li-count">4</span></a></li>
       </ul>
     </div>
 
@@ -258,7 +230,7 @@
     </div>
 
     <div style="width:49%; float:left">
-      <ul data-role="listview" data-inset="false">
+      <ul data-role="listview" data-inset="true">
         <li data-icon="false" class="filterRow">
           <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
